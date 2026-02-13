@@ -1,6 +1,6 @@
 module github.com/NVIDIA/dcgm-exporter
 
-go 1.23.0
+go 1.24.0
 
 require (
 	github.com/NVIDIA/go-dcgm v0.0.0-20250401195952-7c92211ba301
@@ -21,7 +21,7 @@ require (
 	github.com/urfave/cli/v2 v2.27.6
 	go.uber.org/automaxprocs v1.6.0
 	go.uber.org/mock v0.5.0
-	golang.org/x/sync v0.12.0
+	golang.org/x/sync v0.19.0
 	google.golang.org/grpc v1.71.1
 	k8s.io/api v0.32.3
 	k8s.io/apimachinery v0.32.3
