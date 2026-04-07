@@ -1,11 +1,12 @@
 ARG BUILDER_IMAGE
+ARG TARGETARCH
 
 FROM ${BUILDER_IMAGE} AS build
 
 WORKDIR /build
 COPY . .
 
-RUN CGO_ENABLED=1 make install
+RUN GOARCH=${TARGETARCH} CGO_ENABLED=1 make install
 
 FROM registry.ddbuild.io/images/nvidia-cuda-base:12.9.0
 
