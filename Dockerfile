@@ -2,12 +2,16 @@ ARG BUILDER_IMAGE
 
 FROM ${BUILDER_IMAGE} AS build
 
+RUN echo 1
+
 WORKDIR /build
 COPY . .
 
 RUN CGO_ENABLED=1 make install
 
 FROM registry.ddbuild.io/images/nvidia-cuda-base:12.9.0
+
+RUN echo 1
 
 LABEL maintainers="Compute"
 
