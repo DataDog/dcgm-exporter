@@ -37,7 +37,7 @@ CONTAINER      ?= all
 all: ubuntu22.04 ubi9 distroless
 
 binary:
-	cd cmd/dcgm-exporter; $(GO) build -trimpath -ldflags "-X main.BuildVersion=${DCGM_VERSION}-${VERSION}"
+	cd cmd/dcgm-exporter; GOEXPERIMENT=boringcrypto $(GO) build -trimpath -tags fips -ldflags "-X main.BuildVersion=${DCGM_VERSION}-${VERSION}" && go tool nm dcgm-exporter | grep -E 'sig.FIPSOnly'
 
 test-main: generate
 	$(GO) test ./... -short

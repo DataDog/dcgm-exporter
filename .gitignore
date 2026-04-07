@@ -3,6 +3,7 @@
 dcgm-exporter
 .go/
 .cursor/
+!cmd/dcgm-exporter/
 !etc/
 !deployment/
 .env
